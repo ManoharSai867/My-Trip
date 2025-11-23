@@ -78,48 +78,22 @@
         <i class="fas fa-user-plus" style="font-size: 50px; margin-bottom: 10px;"></i>
         <h2>Create Your Account</h2>
 
-        <input type="text" id="fullname" placeholder="Enter Full Name" required>
-        <input type="email" id="email" placeholder="Enter Email" required>
-        <input type="text" id="username" placeholder="Enter Username" required>
-        <input type="password" id="password" placeholder="Create Password" required>
-        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <input type="text" placeholder="Enter Full Name" required>
+        <input type="email" placeholder="Enter Email" required>
+        <input type="text" placeholder="Enter Username" required>
+        <input type="password" placeholder="Create Password" required>
+        <input type="password" placeholder="Confirm Password" required>
 
-        <button type="button" onclick="signupUser()">Signup</button>
+        <button onclick="signupUser()">Signup</button>
 
         <a href="login.html">Already have an account? Login</a>
     </div>
 
+
     <script>
         function signupUser() {
-            const fullname = document.getElementById('fullname').value;
-            const email = document.getElementById('email').value;
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-
-            if(password !== confirmPassword) {
-                alert("Passwords do not match!");
-                return;
-            }
-
-            fetch('http://localhost:3000/signup', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ fullname, email, username, password })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.error) {
-                    alert(data.error);
-                } else {
-                    alert('Signup Successful!');
-                    window.location.href = 'index.html'; // redirect to homepage
-                }
-            })
-            .catch(err => {
-                console.error(err);
-                alert('Something went wrong. Try again.');
-            });
+            alert("Signup Successful!");
+            window.location.href = "login.html"; // Redirect to login page after signup
         }
     </script>
 
